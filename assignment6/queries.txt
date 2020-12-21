@@ -1,0 +1,51 @@
+1. MATCH (town:town { name: "Darjeeling" }),(peak:peak { name: "Sandakphu" }), p = ShortestPath((town)-[*]->(peak))
+   WHERE ALL (r IN relationships(p) WHERE r.winter="true")
+   RETURN p
+2. MATCH (town:town { name: "Darjeeling" }),(peak:peak { name: "Sandakphu" }), p = ((town)-[*]->(peak))
+   with p, reduce(totalDist = 0, n IN nodes(p)| totalDist + n.distance) AS totalDist
+   RETURN p, totalDist order by totalDist
+3. MATCH (town:town { name: "Darjeeling" }), p = ((town)-[:twowheeler{summer:"true"}]->(places)) return places
+(nothing found)
+4. MATCH (:Flight)-[r:ORIGIN]->(a:Airport) RETURN a,count(r) as numOfFlights ORDER BY numOfFlights
+5. I've checked that each flight has economy ticket assigned.
+   MATCH (a1:Airport)<-[r1:ORIGIN]-(f:Flight)-[r2:DESTINATION]->(a2:Airport),p2=((t:Ticket{class:"economy"})-[r:ASSIGN]->(f))
+   with a1,a2,collect(t.price) as allPrices
+   with a1,a2,reduce(minV = 99999, val IN allPrices | CASE WHEN minV < val THEN minV ELSE val END) as minPr
+   create (a1)-[r3:MINPRICEFLIGHT{price:minPr}]->(a2)
+   return a1,a2,r3
+
+   MATCH paths = allShortestPaths((a1:Airport{name:"LAX"})-[:MINPRICEFLIGHT*]->(a2:Airport))
+   WHERE reduce(sumPrice=0,p IN relationships(paths)|sumPrice+p.price)<3000
+   RETURN paths
+   limit 4
+6. MATCH p= allShortestPaths((a1:Airport{ name: "LAX"})-[*]->(a2:Airport{ name: "DAY" }))
+   RETURN p, reduce(price=0, r in relationships(p)|price+r.minPrice) as sumPrice
+   ORDER BY sumPrice
+   (nothing found)
+7. MATCH p= allShortestPaths((a1:Airport{ name: "LAX"})-[*]->(a2:Airport{ name: "DAY" }))
+   RETURN p, reduce(price=0, r in relationships(p)|price+r.minPrice) as sumPrice
+   ORDER BY sumPrice
+   limit 1 
+   (nothing found)
+8. (additional relation for business price)   
+   MATCH (a1:Airport)<-[r1:ORIGIN]-(f:Flight)-[r2:DESTINATION]->(a2:Airport),p2=((t:Ticket{class:"business"})-[r:ASSIGN]->(f))
+   with a1,a2,collect(t.price) as allPrices
+   with a1,a2,reduce(minV = 99999, val IN allPrices | CASE WHEN minV < val THEN minV ELSE val END) as busPr
+   create (a1)-[r3:BUSINESSPRICEFLIGHT{price:busPr}]->(a2)
+   return a1,a2,r3
+   
+   MATCH paths = allShortestPaths((a1:Airport{name:"LAX"})-[:BUSINESSPRICEFLIGHT*]->(a2:Airport{name:"DAY"}))
+   with paths, reduce(sumPrice=0,p IN relationships(paths)|sumPrice+p.price) as price
+   RETURN paths, price
+   order by price
+   limit 1
+   (nothing found)
+9. MATCH (a1:Airport)<-[:ORIGIN]-(f:Flight)-[:DESTINATION]->(a2:Airport)
+   UNWIND [a1, a2] as cities
+   RETURN f.airline as airline, count(distinct cities) as uniqueCitiesNum
+10.MATCH (a1:Airport)-[r1:MINPRICEFLIGHT]->(a2:Airport)-[r2:MINPRICEFLIGHT]->(a3:Airport)
+   with a1,r1,a2,r2,a3, r1.price + r2.price as totalPrice
+   where a1 <>a3
+   RETURN a1,r1,a2,r2,a3, min(totalPrice) as minPrice
+   order by minPrice
+   (first results with lowest prices)

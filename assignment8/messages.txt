@@ -1,0 +1,26 @@
+response from Java program:
+Book object successfully created
+{title:Moby Dick,author:Herman Melville,body:Call me Ishmael. Some years ago...,isbn:1111979723,copiesOwned:3}
+Book object successfully fetched
+Book object successfully updated
+{title:Moby Dick,author:Herman Melville,body:Call me Ishmael. Some years ago...,isbn:1111979723,copiesOwned:5}
+Book object successfully fetched
+Book object successfully deleted
+Book object wasn't fetched
+
+checking with command line:
+request:
+curl -i http://localhost:8098/buckets/books/keys/moby_dick
+response:
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvl+/e0ICkM2awZTIlMfKILU69CZfFgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/books>; rel="up"
+Last-Modified: Mon, 21 Dec 2020 23:26:18 GMT
+ETag: "3zVrPs6eT6VS9vQXQ7WMjK"
+Date: Mon, 21 Dec 2020 23:26:34 GMT
+Content-Type: application/json
+Content-Length: 128
+response:
+{"title":"Moby Dick","author":"Herman Melville","body":"Call me Ishmael. Some years ago...","isbn":"1111979723","copiesOwned":5}

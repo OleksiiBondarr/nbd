@@ -1,0 +1,24 @@
+1. 
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Tesla Model3","country":"USA","production_year":2015,"finished":"true"}' localhost:8098/buckets/s21126/keys/car1
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Toyota Rav4","country":"Japan","production_year":2020,"finished":"true"}' localhost:8098/buckets/s21126/keys/car2
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Mazda mx5","country":"Japan","production_year":2019,"finished":"false"}' localhost:8098/buckets/s21126/keys/car3
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Porsche 911","country":"Germany","production_year":2012,"finished":"false"}' localhost:8098/buckets/s21126/keys/car4
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Alfa Romeo Giulia","country":"Italy","production_year":2019,"finished":"true"}' localhost:8098/buckets/s21126/keys/car5
+2.
+curl -i http://localhost:8098/buckets/s21126/keys/car1
+3.
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Alfa Romeo Giulia","country":"Italy","production_year":2019,"finished":"true","price":"222.11"}' localhost:8098/buckets/s21126/keys/car5
+4.
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Porsche 911","country":"Germany","finished":"false"}' localhost:8098/buckets/s21126/keys/car4
+5.
+curl -i -XPUT -H "Content-Type: application/json" -d '{"model":"Mazda mx5","country":"Japan","production_year":2018,"finished":"false"}' localhost:8098/buckets/s21126/keys/car3
+6.
+curl -i -XDELETE localhost:8098/buckets/s21126/keys/car2
+7.
+curl -i http://localhost:8098/buckets/s21126/keys/car2
+8.
+curl -i -XPOST -H "Content-Type: application/json" -d '{"model":"Ferrary 488","country":"Italy","production_year":2019,"finished":"true"}' localhost:8098/buckets/s21126/keys
+9.
+curl -i http://localhost:8098/buckets/s21126/keys/LjDgTP2MvUD2QsZzC6aDTu4MLpP
+10.
+curl -i -XDELETE localhost:8098/buckets/s21126/keys/LjDgTP2MvUD2QsZzC6aDTu4MLpP

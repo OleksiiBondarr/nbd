@@ -1,0 +1,112 @@
+1. 
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 21:55:28 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:03:35 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:05:04 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:07:46 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:10:31 GMT
+Content-Type: application/json
+Content-Length: 0
+2.
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvl+/u9MfIpTIlMfK8HZq6E2+LAA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s21126>; rel="up"
+Last-Modified: Mon, 21 Dec 2020 21:55:57 GMT
+ETag: "6QyiN64HUNKPtKmedIQ53V"
+Date: Mon, 21 Dec 2020 22:11:26 GMT
+Content-Type: application/json
+Content-Length: 69
+
+'{model:Tesla Model3,country:USA,production_year:2015,finished:true}'
+3.
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:13:57 GMT
+Content-Type: application/json
+Content-Length: 0
+4.
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:15:05 GMT
+Content-Type: application/json
+Content-Length: 0
+5.
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:16:08 GMT
+Content-Type: application/json
+Content-Length: 0
+6.
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:17:10 GMT
+Content-Type: application/json
+Content-Length: 0
+7.
+HTTP/1.1 404 Object Not Found
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:17:44 GMT
+Content-Type: text/plain
+Content-Length: 10
+
+not found
+8.
+HTTP/1.1 201 Created
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s21126/keys/LjDgTP2MvUD2QsZzC6aDTu4MLpP
+Date: Mon, 21 Dec 2020 22:20:43 GMT
+Content-Type: application/json
+Content-Length: 0
+9.
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvl+/W+EdRCiRMY+VYffs0Jt8WQA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s21126>; rel="up"
+Last-Modified: Mon, 21 Dec 2020 22:20:43 GMT
+ETag: "3c8rbbauOtTua71VCjonfa"
+Date: Mon, 21 Dec 2020 22:21:43 GMT
+Content-Type: application/json
+Content-Length: 70
+
+'{model:Ferrary 488,country:Italy,production_year:2019,finished:true}'
+10.
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Mon, 21 Dec 2020 22:22:37 GMT
+Content-Type: application/json
+Content-Length: 0
